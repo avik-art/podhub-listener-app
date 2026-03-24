@@ -1,0 +1,30 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: '**.captivate.fm' },
+      { protocol: 'https', hostname: '**.podbean.com' },
+      { protocol: 'https', hostname: '**.libsyn.com' },
+      { protocol: 'https', hostname: '**.buzzsprout.com' },
+      { protocol: 'https', hostname: 'i.imgur.com' },
+      { protocol: 'https', hostname: 'lh3.googleusercontent.com' },
+      { protocol: 'https', hostname: 'avatars.githubusercontent.com' },
+    ],
+  },
+  // Security headers
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          { key: 'X-Frame-Options',         value: 'DENY' },
+          { key: 'X-Content-Type-Options',   value: 'nosniff' },
+          { key: 'Referrer-Policy',          value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy',       value: 'camera=(), microphone=(), geolocation=()' },
+        ],
+      },
+    ]
+  },
+}
+
+module.exports = nextConfig

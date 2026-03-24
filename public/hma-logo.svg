@@ -1,0 +1,11 @@
+<svg width="220" height="60" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#C9A227"/>
+      <stop offset="50%" style="stop-color:#FFD700"/>
+      <stop offset="100%" style="stop-color:#B8962E"/>
+    </linearGradient>
+  </defs>
+  <text x="10" y="24" font-family="Georgia,serif" font-size="13" fill="#A8A6C8">Healthy Mind by</text>
+  <text x="10" y="50" font-family="Georgia,serif" font-size="22" font-weight="700" fill="url(#g2)">Avik™</text>
+</svg>
