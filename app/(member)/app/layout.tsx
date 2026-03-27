@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { useState, useEffect, createContext, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import type { Profile } from '@/lib/supabase/types'
@@ -9,20 +9,7 @@ import PlayerBar from '@/components/member/PlayerBar'
 import Toast from '@/components/ui/Toast'
 import { usePlayer } from '@/hooks/usePlayer'
 import { useToast } from '@/hooks/useToast'
-
-export interface MemberCtx {
-  profile:     Profile | null
-  showData:    Record<string, unknown>
-  setShowData: (fn: (prev: Record<string, unknown>) => Record<string, unknown>) => void
-  player:      ReturnType<typeof usePlayer>
-  showToast:   ReturnType<typeof useToast>['showToast']
-}
-const MemberContext = createContext<MemberCtx | null>(null)
-export function useMember() {
-  const c = useContext(MemberContext)
-  if (!c) throw new Error('useMember must be used inside MemberLayout')
-  return c
-}
+import { MemberContext } from './context'
 
 export default function MemberLayout({ children }: { children: React.ReactNode }) {
   const router   = useRouter()
